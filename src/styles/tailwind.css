@@ -1,0 +1,23 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body {
+  @apply bg-gray-100 text-gray-800;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.header {
+  @apply flex items-center justify-between py-6 border-b-2 border-gray-100;
+}
+
+.main-content {
+  @apply mt-8;
+}
+
+.footer {
+  @apply mt-12 py-5 border-t border-gray-200;
+}
