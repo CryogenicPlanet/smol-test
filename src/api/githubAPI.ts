@@ -1,49 +1,29 @@
-import { request } from 'graphql-request';
+import { GraphQLClient } from 'graphql-request';
 
-export interface GithubData {
-  user: {
-    name: string;
-    avatarUrl: string;
-    repositories: {
-      nodes: {
-        name: string;
-        description: string;
-        url: string;
-      }[];
-    };
-  };
-}
+const endpoint = 'https://api.github.com/graphql';
 
-const GITHUB_GRAPHQL_API = 'https://api.github.com/graphql';
+const graphQLClient = new GraphQLClient(endpoint, {
+  headers: {
+    authorization: 'Bearer YOUR_GITHUB_PERSONAL_ACCESS_TOKEN',
+  },
+});
 
-export const githubAPI = {
-  async fetchGithubData(token: string, username: string): Promise<GithubData> {
-    const query = `
-      query {
-        user(login: "${username}") {
+export async function getImportantInfo() {
+  const query = `{
+    viewer {
+      login
+      avatarUrl
+      repositories(first: 5, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
           name
-          avatarUrl
-          repositories(first: 10, orderBy: {field: UPDATED_AT, direction: DESC}) {
-            nodes {
-              name
-              description
-              url
-            }
-          }
+          updatedAt
+          description
+          url
         }
       }
-    `;
-
-    const headers = {
-      Authorization: `Bearer ${token}`,
-    };
-
-    try {
-      const data = await request<GithubData>(GITHUB_GRAPHQL_API, query, headers);
-      return data;
-    } catch (error) {
-      console.error('Failed to fetch Github data', error);
-      throw error;
     }
-  },
-};
+  }`;
+
+  const data = await graphQLClient.request(query);
+  return data;
+}

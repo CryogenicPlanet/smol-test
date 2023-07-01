@@ -1,0 +1,18 @@
+{
+  "appName": {
+    "message": "GitHub Homepage Redesign",
+    "description": "Name of the application"
+  },
+  "appDescription": {
+    "message": "A Chrome extension that redesigns the GitHub homepage to display important information using the GitHub GraphQL API.",
+    "description": "Description of the application"
+  },
+  "error": {
+    "message": "An error occurred",
+    "description": "Error message to display when an error occurs"
+  },
+  "loading": {
+    "message": "Loading...",
+    "description": "Message to display while loading data"
+  }
+}

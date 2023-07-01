@@ -15,10 +15,11 @@ export default defineConfig({
       name: 'MyChromeExtension',
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'graphql-request'],
       output: {
         globals: {
           vue: 'Vue',
+          'graphql-request': 'GraphQLRequest',
         },
       },
     },

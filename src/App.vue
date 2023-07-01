@@ -1,37 +1,34 @@
 <template>
   <div id="app">
-    <Home v-if="!redesignActive" />
-    <Redesign v-else />
+    <Navbar />
+    <Home />
+    <Footer />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import Home from './components/Home.vue';
-import Redesign from './components/Redesign.vue';
+import { defineComponent } from 'vue'
+import Navbar from './components/Navbar.vue'
+import Home from './components/Home.vue'
+import Footer from './components/Footer.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
+    Navbar,
     Home,
-    Redesign
-  },
-  setup() {
-    const redesignActive = ref(false);
-
-    chrome.runtime.onMessage.addListener((request) => {
-      if (request.message === 'REDESIGN_PAGE') {
-        redesignActive.value = true;
-      }
-    });
-
-    return {
-      redesignActive
-    };
+    Footer
   }
-});
+})
 </script>
 
 <style scoped>
-@import './styles/index.css';
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>

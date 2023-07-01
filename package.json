@@ -1,7 +1,7 @@
 {
-  "name": "github-redesign-extension",
+  "name": "github-home-redesign",
   "version": "1.0.0",
-  "description": "A Chrome extension to redesign the GitHub homepage using TypeScript, Vite and TailwindCSS.",
+  "description": "A Chrome extension to redesign the GitHub home page using TypeScript, Vite, and Tailwind CSS.",
   "main": "src/main.ts",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,6 @@
   },
   "keywords": [
     "github",
-    "redesign",
     "chrome-extension",
     "typescript",
     "vite",
@@ -20,15 +19,18 @@
   "license": "ISC",
   "dependencies": {
     "vue": "^3.0.0",
-    "github-graphql-api": "^1.0.0"
+    "graphql-request": "^3.4.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.0.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "typescript": "^4.0.0",
-    "vite": "^2.0.0",
-    "tailwindcss": "^2.0.0",
-    "postcss": "^8.0.0",
-    "autoprefixer": "^10.0.0"
-  }
+    "@vitejs/plugin-vue": "^1.2.4",
+    "@vue/compiler-sfc": "^3.0.5",
+    "typescript": "^4.1.5",
+    "vite": "^2.3.8",
+    "tailwindcss": "^2.2.7",
+    "postcss": "^8.3.6",
+    "autoprefixer": "^10.3.1"
+  },
+  "browserslist": [
+    "last 1 chrome version"
+  ]
 }

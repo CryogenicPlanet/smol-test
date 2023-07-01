@@ -1,24 +1,35 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwind.css';
 
-/* Custom styles for the redesigned Github home page */
 body {
-  @apply bg-gray-100;
+    font-family: 'Inter', sans-serif;
 }
 
-#app {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
-#home {
-  @apply text-gray-900;
+/* Custom styles for GitHub homepage redesign */
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
-#redesign {
-  @apply text-gray-600;
+/* Styles for Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e5e7eb;
 }
 
-.popup {
-  @apply bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full;
+/* Styles for Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #e5e7eb;
 }
